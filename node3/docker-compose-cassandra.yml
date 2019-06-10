@@ -11,6 +11,7 @@ services:
       - ./data:/var/lib/cassandra
     ports:
       - 7000:7000
+      - 9042:9042
 
 
         #docker run --name some-cassandra -d -e CASSANDRA_BROADCAST_ADDRESS=10.42.42.42 -p 7000:7000 cassandra:tag
