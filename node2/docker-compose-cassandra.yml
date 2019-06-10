@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  cassanda:
+    image: cassandra:3
+    environment:
+        - CASSANDRA_BROADCAST_ADDRESS=node-2.uggla.fr
+        - CASSANDRA_SEEDS=node-1.uggla.fr
+        - JVM_OPTS=-Xmx2G -Xms2G
+    volumes:
+      - ./data:/var/lib/cassandra
+    ports:
+      - 7000:7000
+
+
+        #docker run --name some-cassandra -d -e CASSANDRA_BROADCAST_ADDRESS=10.42.42.42 -p 7000:7000 cassandra:tag
+        #docker run --name some-cassandra -d -e CASSANDRA_BROADCAST_ADDRESS=10.43.43.43 -p 7000:7000 -e CASSANDRA_SEEDS=10.42.42.42 cassandra:tag
+        #docker run --name some-cassandra -v /my/own/datadir:/var/lib/cassandra -d cassandra:tag
