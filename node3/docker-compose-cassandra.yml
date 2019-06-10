@@ -4,6 +4,7 @@ services:
   cassanda:
     image: cassandra:3
     environment:
+        - CASSANDRA_CLUSTER_NAME=bidule
         - CASSANDRA_BROADCAST_ADDRESS=node-3.uggla.fr
         - CASSANDRA_SEEDS=node-1.uggla.fr
         - JVM_OPTS=-Xmx2G -Xms2G
